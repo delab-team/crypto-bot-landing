@@ -15,9 +15,10 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import s from './hero-block.module.scss';
 
 import PHONE from 'public/img/hero-block/phone.webp';
+import PHONE_MOBILE from 'public/img/hero-block/phone-mobile.webp';
 
 export default function HeroBlock() {
-    const isMobile = useMediaQuery(500);
+    const isMobile = useMediaQuery(768);
 
     return (
         <motion.section className={s.heroBlock}>
@@ -72,7 +73,7 @@ export default function HeroBlock() {
                         transition={{ duration: 0.2, delay: 0.2 }}
                         className={s.heroBlockRight}
                     >
-                        <Image src={PHONE} alt="iphone" loading="eager" priority />
+                        <Image src={!isMobile ? PHONE : PHONE_MOBILE} alt="iphone" loading="eager" priority />
                     </motion.div>
                 </motion.div>
             </Container>
