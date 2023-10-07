@@ -24,11 +24,11 @@ export default function FeaturesBlock() {
                         <div className={s.start}>
                             <div className={s.startVideo}>
                                 {theme === 'light' ? (
-                                    <video key="light" playsInline autoPlay loop muted>
+                                    <video key="light" playsInline autoPlay loop muted preload="auto">
                                         <source src={'/videos/start.mp4'} type="video/mp4" />
                                     </video>
                                 ) : (
-                                    <video key="dark" playsInline autoPlay loop muted>
+                                    <video key="dark" playsInline autoPlay loop muted preload="auto">
                                         <source src={'/videos/start-dark.mp4'} type="video/mp4" />
                                     </video>
                                 )}
@@ -51,11 +51,11 @@ export default function FeaturesBlock() {
                         <div className={s.exchange}>
                             <div className={s.exchangeVideo}>
                                 {theme === 'light' ? (
-                                    <video key="light" playsInline autoPlay loop muted>
+                                    <video key="light" playsInline autoPlay loop muted  preload="auto">
                                         <source src={'/videos/exchange.mp4'} type="video/mp4" />
                                     </video>
                                 ) : (
-                                    <video key="dark" playsInline autoPlay loop muted>
+                                    <video key="dark" playsInline autoPlay loop muted  preload="auto">
                                         <source
                                             src={'/videos/exchange-dark.mp4'}
                                             type="video/mp4"
@@ -77,7 +77,7 @@ export default function FeaturesBlock() {
                     </div>
                     <div className={s.stats}>
                         <div className={s.statsVideo}>
-                            <video playsInline autoPlay loop muted>
+                            <video playsInline autoPlay loop muted  preload="auto">
                                 <source src={'/videos/stats.mp4'} type="video/mp4" />
                             </video>
                         </div>
@@ -101,11 +101,11 @@ export default function FeaturesBlock() {
                     <div className={s.commission}>
                         <div className={s.commissionVideo}>
                             {theme === 'light' ? (
-                                <video key="light" playsInline autoPlay loop muted>
+                                <video key="light" playsInline autoPlay loop muted  preload="auto">
                                     <source src={'/videos/send.mp4'} type="video/mp4" />
                                 </video>
                             ) : (
-                                <video key="dark" playsInline autoPlay loop muted>
+                                <video key="dark" playsInline autoPlay loop muted  preload="auto">
                                     <source src={'/videos/send-black.mp4'} type="video/mp4" />
                                 </video>
                             )}
@@ -123,7 +123,7 @@ export default function FeaturesBlock() {
                     </div>
                     <div className={s.payments}>
                         <div className={s.paymentsVideo}>
-                            <video playsInline autoPlay loop muted>
+                            <video playsInline autoPlay loop muted  preload="auto">
                                 <source src={'/videos/payments.mp4'} type="video/mp4" />
                             </video>
                         </div>
