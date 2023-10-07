@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import React from 'react';
 
 import Title from '@/components/ui/title';
 import Text from '@/components/ui/text';
@@ -8,15 +8,23 @@ import { NavRef } from '@/components/header';
 
 import Container from '@/components/container';
 
+import { useMediaQuery } from '@/hooks/use-media-query';
+
 import s from './instruction-block.module.scss';
 
 import IMG1 from 'public/img/intstruction-block/step-1.svg';
 import IMG2 from 'public/img/intstruction-block/step-2.svg';
 import IMG3 from 'public/img/intstruction-block/step-3.svg';
 
+import IMG1_MOBILE from 'public/img/intstruction-block/step-1-mobile.svg';
+import IMG2_MOBILE from 'public/img/intstruction-block/step-2-mobile.svg';
+import IMG3_MOBILE from 'public/img/intstruction-block/step-3-mobile.svg';
+
 export const startRef: NavRef = { current: null };
 
 export default function InstructionBlock() {
+    const isTablet = useMediaQuery(768);
+
     return (
         <section className={s.instructionBlock} ref={startRef}>
             <Container>
@@ -68,7 +76,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            {/* <Image src={IMG1} alt="img" /> */}
+                            {React.createElement(!isTablet ? IMG1 : IMG1_MOBILE)}
                         </div>
                     </div>
                     <div className={`${s.item} ${s.itemReverse}`}>
@@ -106,7 +114,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            {/* <Image src={IMG2} alt="img" /> */}
+                            {React.createElement(!isTablet ? IMG2 : IMG2_MOBILE)}
                         </div>
                     </div>
                     <div className={s.item}>
@@ -140,7 +148,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            {/* <Image src={IMG3} alt="img" /> */}
+                            {React.createElement(!isTablet ? IMG3 : IMG3_MOBILE)}
                         </div>
                     </div>
                 </div>

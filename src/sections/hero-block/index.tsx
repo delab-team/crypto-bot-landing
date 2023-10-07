@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -58,7 +59,7 @@ export default function HeroBlock() {
                                         transition={{ delay: index * 0.2 }}
                                         className={s.botsListItem}
                                     >
-                                        {/* <Image src={bot.src} alt={bot.alt} quality={1000} loading="lazy" unoptimized={false} /> */}
+                                        {React.createElement(!isMobile ? bot.src : bot.srcMobile)}
                                     </motion.div>
                                 ))}
                             </div>
@@ -74,7 +75,6 @@ export default function HeroBlock() {
                         className={s.heroBlockRight}
                     >
                         {!isMobile ? <PHONE /> : <PHONE_MOBILE/>}
-                        {/* <Image src={!isMobile ? PHONE : PHONE_MOBILE} alt="iphone" priority quality={1000} loading="lazy" unoptimized={false}  /> */}
                     </motion.div>
                 </motion.div>
             </Container>

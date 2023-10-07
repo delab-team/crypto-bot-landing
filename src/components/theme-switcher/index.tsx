@@ -34,7 +34,7 @@ export default function ThemeSwitcher() {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
         >
-            {/* <Image src={theme === 'light' ? LIGHT : DARK} alt="Theme change" /> */}
+            {theme === 'light' ? <LIGHT /> : <DARK />}
         </motion.button>
     );
 }

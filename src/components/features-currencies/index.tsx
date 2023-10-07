@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState, createElement } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -22,6 +21,7 @@ export default function FeaturesCurrencies() {
     const { theme } = useTheme();
 
     const isMobile = useMediaQuery(550);
+    const isTablet = useMediaQuery(768);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -57,14 +57,7 @@ export default function FeaturesCurrencies() {
                             }
                             transition={{ duration: 0.7 }}
                         >
-                            {/* <Image
-                                loading="eager"
-                                src={currency.icon}
-                                className={s.currImg}
-                                width="96"
-                                height="96"
-                                alt="icon"
-                            /> */}
+                            {createElement(!isTablet ? currency.icon : currency.iconMobile)}
                         </motion.div>
                         <motion.p
                             initial={{ color: 'rgba(17, 17, 17, 0.40)' }}

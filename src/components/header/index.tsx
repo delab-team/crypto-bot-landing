@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 import Container from '../container';
@@ -12,9 +11,12 @@ import { casesRef } from '@/sections/sales-info';
 import { featuresRef } from '@/sections/features-block';
 import { startRef } from '@/sections/instruction-block';
 
+import { useMediaQuery } from '@/hooks/use-media-query';
+
 import s from './header.module.scss';
 
 import LOGO from 'public/img/header/logo.svg';
+import LOGO_MOBILE from 'public/img/header/logo-mobile.svg';
 
 export interface NavRef {
     current: HTMLDivElement | null;
@@ -29,13 +31,14 @@ export default function Header() {
         }
     };
 
+    const isMobile = useMediaQuery(768);
+
     return (
         <header className={s.header}>
             <Container>
                 <div className={s.headerRow}>
                     <Link href="/" className={s.headerLogo}>
-                        <LOGO />
-                        {/* <Image src={LOGO} alt="logo" /> */}
+                        {!isMobile ? <LOGO /> : <LOGO_MOBILE />}
                     </Link>
                     <nav className={s.headerNav}>
                         <ul className={s.headerList}>

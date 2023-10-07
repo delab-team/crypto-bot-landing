@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import React from 'react';
 
 import { useState, useEffect } from 'react';
 
@@ -69,6 +69,7 @@ export default function SalesInfo() {
     }, [activeIndex, totalSlides]);
 
     const isMobile = useMediaQuery(1024);
+    const isTablet = useMediaQuery(768);
 
     return (
         <section className={s.useCasesSection} ref={casesRef}>
@@ -87,7 +88,7 @@ export default function SalesInfo() {
                     {useCasesArr.map((el) => (
                         <SwiperSlide className={s.useCasesItem} key={v1()}>
                             <div className={s.useCasesBlockImg}>
-                                {/* <Image src={el.img} alt="slider-image" /> */}
+                                {React.createElement(!isTablet ? el.img : el.imgMobile)}
                             </div>
                             <div>
                                 <Title variant="h2" className={s.useCasesBlockTitle}>

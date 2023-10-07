@@ -1,4 +1,6 @@
-import Image from 'next/image';
+'use client'
+
+import React from 'react';
 
 import { v1 } from 'uuid';
 
@@ -7,11 +9,15 @@ import Title from '@/components/ui/title';
 import Text from '@/components/ui/text';
 import Button from '@/components/ui/button';
 
+import { useMediaQuery } from '@/hooks/use-media-query';
+
 import { communityData } from '@/mockup/community';
 
 import s from './community-block.module.scss';
 
 export default function CommunityBlock() {
+    const isMobile = useMediaQuery(768);
+
     return (
         <section className={s.community}>
             <Container>
@@ -25,7 +31,7 @@ export default function CommunityBlock() {
                 <div className={s.communityItems}>
                     {communityData.map((el) => (
                         <div key={v1()} className={s.communityItem}>
-                            {/* <Image src={el.img} alt={el.title} /> */}
+                            {React.createElement(!isMobile ? el.img : el.imgMobile)}
                             <a href="#" className={s.communityItemTitle}>
                                 {el.title}
                             </a>
