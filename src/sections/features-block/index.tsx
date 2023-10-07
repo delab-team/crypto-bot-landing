@@ -8,9 +8,24 @@ import Title from '@/components/ui/title';
 import Text from '@/components/ui/text';
 import { NavRef } from '@/components/header';
 
+import useVideo from '@/hooks/useVideo';
+
 import s from './features-block.module.scss';
 
 export const featuresRef: NavRef = { current: null };
+
+interface VideoProps
+    extends React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> {
+    url: string;
+}
+
+function Video({ url, ...rest }: VideoProps) {
+    const video = useVideo(url);
+
+    if (!video) return;
+
+    return <video src={video} {...rest} />;
+}
 
 export default function FeaturesBlock() {
     const { theme } = useTheme();
@@ -24,13 +39,23 @@ export default function FeaturesBlock() {
                         <div className={s.start}>
                             <div className={s.startVideo}>
                                 {theme === 'light' ? (
-                                    <video key="light" playsInline autoPlay loop muted preload="auto">
-                                        <source src={'/videos/start.mp4'} type="video/mp4" />
-                                    </video>
+                                    <Video
+                                        url="/videos/start.mp4"
+                                        key="light"
+                                        playsInline
+                                        autoPlay
+                                        loop
+                                        muted
+                                    />
                                 ) : (
-                                    <video key="dark" playsInline autoPlay loop muted preload="auto">
-                                        <source src={'/videos/start-dark.mp4'} type="video/mp4" />
-                                    </video>
+                                    <Video
+                                        url="/videos/start-dark.mp4"
+                                        key="dark"
+                                        playsInline
+                                        autoPlay
+                                        loop
+                                        muted
+                                    />
                                 )}
                             </div>
                             <Title variant="h3" className={s.startTitle}>
@@ -51,16 +76,23 @@ export default function FeaturesBlock() {
                         <div className={s.exchange}>
                             <div className={s.exchangeVideo}>
                                 {theme === 'light' ? (
-                                    <video key="light" playsInline autoPlay loop muted  preload="auto">
-                                        <source src={'/videos/exchange.mp4'} type="video/mp4" />
-                                    </video>
+                                    <Video
+                                        url="/videos/exchange.mp4"
+                                        key="light"
+                                        playsInline
+                                        autoPlay
+                                        loop
+                                        muted
+                                    />
                                 ) : (
-                                    <video key="dark" playsInline autoPlay loop muted  preload="auto">
-                                        <source
-                                            src={'/videos/exchange-dark.mp4'}
-                                            type="video/mp4"
-                                        />
-                                    </video>
+                                    <Video
+                                        url="/videos/exchange-dark.mp4"
+                                        key="dark"
+                                        playsInline
+                                        autoPlay
+                                        loop
+                                        muted
+                                    />
                                 )}
                             </div>
                             <Title variant="h3" className={s.exchangeTitle}>
@@ -77,9 +109,7 @@ export default function FeaturesBlock() {
                     </div>
                     <div className={s.stats}>
                         <div className={s.statsVideo}>
-                            <video playsInline autoPlay loop muted  preload="auto">
-                                <source src={'/videos/stats.mp4'} type="video/mp4" />
-                            </video>
+                            <Video url="/videos/stats.mp4" playsInline autoPlay loop muted />
                         </div>
                         <Title variant="h3" className={s.statsTitle}>
                             Payment statistics
@@ -101,13 +131,23 @@ export default function FeaturesBlock() {
                     <div className={s.commission}>
                         <div className={s.commissionVideo}>
                             {theme === 'light' ? (
-                                <video key="light" playsInline autoPlay loop muted  preload="auto">
-                                    <source src={'/videos/send.mp4'} type="video/mp4" />
-                                </video>
+                                    <Video
+                                    url="/videos/send.mp4"
+                                    key="light"
+                                    playsInline
+                                    autoPlay
+                                    loop
+                                    muted
+                                />
                             ) : (
-                                <video key="dark" playsInline autoPlay loop muted  preload="auto">
-                                    <source src={'/videos/send-black.mp4'} type="video/mp4" />
-                                </video>
+                                <Video
+                                url="/videos/send-black.mp4"
+                                key="dark"
+                                playsInline
+                                autoPlay
+                                loop
+                                muted
+                            />
                             )}
                         </div>
                         <Title variant="h3" className={s.commissionTitle}>
@@ -123,9 +163,13 @@ export default function FeaturesBlock() {
                     </div>
                     <div className={s.payments}>
                         <div className={s.paymentsVideo}>
-                            <video playsInline autoPlay loop muted  preload="auto">
-                                <source src={'/videos/payments.mp4'} type="video/mp4" />
-                            </video>
+                        <Video
+                                    url="/videos/payments.mp4"
+                                    playsInline
+                                    autoPlay
+                                    loop
+                                    muted
+                                />
                         </div>
                         <Title variant="h3" className={s.paymentsTitle}>
                             Anonymous payments
