@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 
-import { useState, useRef, useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+import { useState, useEffect } from 'react';
+
+import { Inter } from 'next/font/google';
 
 import { v1 } from 'uuid';
 
@@ -27,6 +28,8 @@ import s from './sales-info.module.scss';
 
 export const casesRef: NavRef = { current: null };
 
+const inter = Inter({ subsets: ['latin'] });
+
 export default function SalesInfo() {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -34,28 +37,30 @@ export default function SalesInfo() {
 
     useEffect(() => {
         const pagination = document.querySelector('.swiper-pagination');
-    
+
         if (pagination) {
             const activeSlideNumber = (activeIndex + 1).toString().padStart(2, '0');
             const totalSlidesNumber = totalSlides.toString().padStart(2, '0');
-    
+
             const beforeStyle = document.createElement('style');
             beforeStyle.textContent = `
             .swiper-pagination::before {
+                font-family: ${inter.style.fontFamily}; 
               content: '${activeSlideNumber}';
             }
           `;
-    
+
             const afterStyle = document.createElement('style');
             afterStyle.textContent = `
             .swiper-pagination::after {
+                font-family: ${inter.style.fontFamily}; 
               content: '${totalSlidesNumber}';
             }
           `;
-    
+
             pagination.appendChild(beforeStyle);
             pagination.appendChild(afterStyle);
-    
+
             return () => {
                 pagination.removeChild(beforeStyle);
                 pagination.removeChild(afterStyle);

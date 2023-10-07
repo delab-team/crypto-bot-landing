@@ -39,6 +39,7 @@
             border-radius: 24px;
             background-size: cover;
             background-image: url('/img/api-block/API-bg-mob.webp');
+            background-attachment: lazy;
         }
         &Content {
             width: 100%;
