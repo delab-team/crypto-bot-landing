@@ -58,7 +58,7 @@ export default function HeroBlock() {
                                         transition={{ delay: index * 0.2 }}
                                         className={s.botsListItem}
                                     >
-                                        <Image src={bot.src} alt={bot.alt} />
+                                        <Image src={bot.src} alt={bot.alt} quality={1000} loading="lazy" unoptimized={false} />
                                     </motion.div>
                                 ))}
                             </div>
@@ -73,7 +73,7 @@ export default function HeroBlock() {
                         transition={{ duration: 0.2, delay: 0.2 }}
                         className={s.heroBlockRight}
                     >
-                        <Image src={!isMobile ? PHONE : PHONE_MOBILE} alt="iphone" loading="eager" priority />
+                        <Image src={!isMobile ? PHONE : PHONE_MOBILE} alt="iphone" priority quality={1000} loading="lazy" unoptimized={false}  />
                     </motion.div>
                 </motion.div>
             </Container>
