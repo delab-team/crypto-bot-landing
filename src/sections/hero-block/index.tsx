@@ -14,7 +14,7 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 
 import s from './hero-block.module.scss';
 
-import PHONE from 'public/img/hero-block/phone.svg';
+import PHONE from 'public/img/hero-block/phone.webp';
 
 export default function HeroBlock() {
     const isMobile = useMediaQuery(500);
