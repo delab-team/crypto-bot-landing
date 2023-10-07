@@ -66,20 +66,14 @@ export default function HeroBlock() {
                             </Text>
                         </div>
                     </motion.div>
-                    {isMobile ? (
-                        <div className={s.heroBlockRight}>
-                            <Image src={PHONE} alt="iphone" />
-                        </div>
-                    ) : (
-                        <motion.div
-                            initial={{ x: 20, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.2, delay: 0.2 }}
-                            className={s.heroBlockRight}
-                        >
-                            <Image src={PHONE} alt="iphone" />
-                        </motion.div>
-                    )}
+                    <motion.div
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.2, delay: 0.2 }}
+                        className={s.heroBlockRight}
+                    >
+                        <Image src={PHONE} alt="iphone" loading="eager" priority />
+                    </motion.div>
                 </motion.div>
             </Container>
         </motion.section>
