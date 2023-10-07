@@ -15,10 +15,9 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import s from './hero-block.module.scss';
 
 import PHONE from 'public/img/hero-block/phone.svg';
-import PHONE_MOBILE from 'public/img/hero-block/phone-mobile.svg';
 
 export default function HeroBlock() {
-    const isMobile = useMediaQuery(768);
+    const isMobile = useMediaQuery(500);
 
     return (
         <motion.section className={s.heroBlock}>
@@ -67,14 +66,20 @@ export default function HeroBlock() {
                             </Text>
                         </div>
                     </motion.div>
-                    <motion.div
-                        initial={{ x: 20, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.2, delay: 0.2 }}
-                        className={s.heroBlockRight}
-                    >
-                        <Image src={PHONE} alt="iphone" />
-                    </motion.div>
+                    {isMobile ? (
+                        <div className={s.heroBlockRight}>
+                            <Image src={PHONE} alt="iphone" />
+                        </div>
+                    ) : (
+                        <motion.div
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.2, delay: 0.2 }}
+                            className={s.heroBlockRight}
+                        >
+                            <Image src={PHONE} alt="iphone" />
+                        </motion.div>
+                    )}
                 </motion.div>
             </Container>
         </motion.section>
