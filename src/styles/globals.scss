@@ -91,11 +91,11 @@ main {
     &::before,
     &::after {
         position: absolute;
-        left: 50%;
+        left: 45%;
         transform: translate(-50%, 0);
         color: $white;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 120%;
         text-transform: uppercase;
         font-family: Inter;

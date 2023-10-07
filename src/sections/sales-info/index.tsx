@@ -34,25 +34,28 @@ export default function SalesInfo() {
 
     useEffect(() => {
         const pagination = document.querySelector('.swiper-pagination');
-
+    
         if (pagination) {
+            const activeSlideNumber = (activeIndex + 1).toString().padStart(2, '0');
+            const totalSlidesNumber = totalSlides.toString().padStart(2, '0');
+    
             const beforeStyle = document.createElement('style');
             beforeStyle.textContent = `
             .swiper-pagination::before {
-              content: '${activeIndex + 1}';
+              content: '${activeSlideNumber}';
             }
           `;
-
+    
             const afterStyle = document.createElement('style');
             afterStyle.textContent = `
             .swiper-pagination::after {
-              content: '${totalSlides}';
+              content: '${totalSlidesNumber}';
             }
           `;
-
+    
             pagination.appendChild(beforeStyle);
             pagination.appendChild(afterStyle);
-
+    
             return () => {
                 pagination.removeChild(beforeStyle);
                 pagination.removeChild(afterStyle);
