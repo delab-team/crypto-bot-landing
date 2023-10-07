@@ -1,8 +1,8 @@
-import DUCK from 'public/img/hero-block/duck.png';
-import ALIEN from 'public/img/hero-block/alien.png';
-import STAR from 'public/img/hero-block/star.png';
-import ELLIPSE from 'public/img/hero-block/ellipse.png';
-import WOLF from 'public/img/hero-block/wolf.png';
+import DUCK from 'public/img/hero-block/duck.webp';
+import ALIEN from 'public/img/hero-block/alien.webp';
+import STAR from 'public/img/hero-block/star.webp';
+import ELLIPSE from 'public/img/hero-block/ellipse.webp';
+import WOLF from 'public/img/hero-block/wolf.webp';
 
 export const bots = [
   {
