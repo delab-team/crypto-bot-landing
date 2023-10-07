@@ -14,7 +14,8 @@ export default function Footer() {
             <Container>
                 <div className={s.footerRow}>
                     <Link href="/" className={s.footerLogo}>
-                        <Image src={LOGO} alt="logo" />
+                        <LOGO />
+                        {/* <Image src={LOGO} alt="logo" /> */}
                     </Link>
                     <nav className={s.footerNav}>
                         <ul className={s.footerList}>

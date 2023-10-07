@@ -25,7 +25,7 @@ export default function CommunityBlock() {
                 <div className={s.communityItems}>
                     {communityData.map((el) => (
                         <div key={v1()} className={s.communityItem}>
-                            <Image src={el.img} alt={el.title} />
+                            {/* <Image src={el.img} alt={el.title} /> */}
                             <a href="#" className={s.communityItemTitle}>
                                 {el.title}
                             </a>

@@ -68,7 +68,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            <Image src={IMG1} alt="img" />
+                            {/* <Image src={IMG1} alt="img" /> */}
                         </div>
                     </div>
                     <div className={`${s.item} ${s.itemReverse}`}>
@@ -106,7 +106,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            <Image src={IMG2} alt="img" />
+                            {/* <Image src={IMG2} alt="img" /> */}
                         </div>
                     </div>
                     <div className={s.item}>
@@ -140,7 +140,7 @@ export default function InstructionBlock() {
                             </div>
                         </div>
                         <div className={s.img}>
-                            <Image src={IMG3} alt="img" />
+                            {/* <Image src={IMG3} alt="img" /> */}
                         </div>
                     </div>
                 </div>

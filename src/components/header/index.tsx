@@ -34,7 +34,8 @@ export default function Header() {
             <Container>
                 <div className={s.headerRow}>
                     <Link href="/" className={s.headerLogo}>
-                        <Image src={LOGO} alt="logo" />
+                        <LOGO />
+                        {/* <Image src={LOGO} alt="logo" /> */}
                     </Link>
                     <nav className={s.headerNav}>
                         <ul className={s.headerList}>

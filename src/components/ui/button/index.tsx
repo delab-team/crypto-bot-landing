@@ -61,9 +61,9 @@ export default function Button({
             disabled={disabled}
             {...restProps}
         >
-            {!!startIcon && <Image src={startIcon} alt="start icon" />}
+            {/* {!!startIcon && <Image src={startIcon} alt="start icon" />} */}
             {children}
-            {!!endIcon && <Image src={endIcon} alt="end icon" />}
+            {/* {!!endIcon && <Image src={endIcon} alt="end icon" />} */}
         </button>
     );
 }

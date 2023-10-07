@@ -87,7 +87,7 @@ export default function SalesInfo() {
                     {useCasesArr.map((el) => (
                         <SwiperSlide className={s.useCasesItem} key={v1()}>
                             <div className={s.useCasesBlockImg}>
-                                <Image src={el.img} alt="slider-image" />
+                                {/* <Image src={el.img} alt="slider-image" /> */}
                             </div>
                             <div>
                                 <Title variant="h2" className={s.useCasesBlockTitle}>

@@ -57,14 +57,14 @@ export default function FeaturesCurrencies() {
                             }
                             transition={{ duration: 0.7 }}
                         >
-                            <Image
+                            {/* <Image
                                 loading="eager"
                                 src={currency.icon}
                                 className={s.currImg}
                                 width="96"
                                 height="96"
                                 alt="icon"
-                            />
+                            /> */}
                         </motion.div>
                         <motion.p
                             initial={{ color: 'rgba(17, 17, 17, 0.40)' }}
