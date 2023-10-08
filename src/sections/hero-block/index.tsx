@@ -16,10 +16,10 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import s from './hero-block.module.scss';
 
 import PHONE from 'public/img/hero-block/phone-screen.svg';
-import SCREEN from 'public/img/hero-block/screen.png';
+import SCREEN from 'public/img/hero-block/screen2.webp';
 
 import PHONE_MOBILE from 'public/img/hero-block/phone-screen-mobile.svg';
-import PHONE_MOBILE_SCREEN from 'public/img/hero-block/screen-phone-mobile.png';
+import PHONE_MOBILE_SCREEN from 'public/img/hero-block/screen2.webp';
 
 export default function HeroBlock() {
     const isMobile = useMediaQuery(768);
@@ -62,7 +62,13 @@ export default function HeroBlock() {
                                     transition={{ delay: index * 0.2 }}
                                     className={s.botsListItem}
                                 >
-                                    <Image src={bot.src} alt={bot.alt} />
+                                    <Image 
+                                    src={bot.src} 
+                                    alt={bot.alt} 
+                                    width={isMobile ? 63: 96 }
+                                    height={isMobile ? 63: 96 }
+                                    loading={'eager'}
+                                    />
                                 </motion.div>
                                 ))}
                             </div>
@@ -81,7 +87,15 @@ export default function HeroBlock() {
                             {!isMobile ? (
                                 <>
                                     <PHONE />
-                                    <Image src={SCREEN} className={s.phoneScreen} alt="screen" />
+                                    <Image 
+                                        src={SCREEN} 
+                                        className={s.phoneScreen} 
+                                        alt="screen" 
+                                        width={304}
+                                        height={663}
+                                        loading={'eager'}
+                                        priority={true}
+                                    />
                                 </>
                             ) : (
                                 <>
@@ -90,6 +104,10 @@ export default function HeroBlock() {
                                         src={PHONE_MOBILE_SCREEN}
                                         className={s.phoneScreen}
                                         alt="screen"
+                                        width={280}
+                                        height={612}
+                                        loading={'eager'}
+                                        priority={true}
                                     />
                                 </>
                             )}
