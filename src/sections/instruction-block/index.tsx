@@ -1,29 +1,30 @@
-'use client';
+/* eslint-disable import/no-cycle */
 
-import React from 'react';
+'use client'
 
-import Title from '@/components/ui/title';
-import Text from '@/components/ui/text';
-import { NavRef } from '@/components/header';
+import React, { ReactElement } from 'react'
 
-import Container from '@/components/container';
+import { Title } from '@/components/ui/title'
+import { Text } from '@/components/ui/text'
+import { NavRef } from '@/components/header'
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { Container } from '@/components/container'
 
-import s from './instruction-block.module.scss';
+import { useMediaQuery } from '@/hooks/use-media-query'
 
-import IMG1 from 'public/img/intstruction-block/step-1.svg';
-import IMG2 from 'public/img/intstruction-block/step-2.svg';
-import IMG3 from 'public/img/intstruction-block/step-3.svg';
+import IMG1 from 'public/img/intstruction-block/step-1.svg'
+import IMG2 from 'public/img/intstruction-block/step-2.svg'
+import IMG3 from 'public/img/intstruction-block/step-3.svg'
 
-import IMG1_MOBILE from 'public/img/intstruction-block/step-1-mobile.svg';
-import IMG2_MOBILE from 'public/img/intstruction-block/step-2-mobile.svg';
-import IMG3_MOBILE from 'public/img/intstruction-block/step-3-mobile.svg';
+import IMG1_MOBILE from 'public/img/intstruction-block/step-1-mobile.svg'
+import IMG2_MOBILE from 'public/img/intstruction-block/step-2-mobile.svg'
+import IMG3_MOBILE from 'public/img/intstruction-block/step-3-mobile.svg'
+import s from './instruction-block.module.scss'
 
-export const startRef: NavRef = { current: null };
+export const startRef: NavRef = { current: null }
 
-export default function InstructionBlock() {
-    const isTablet = useMediaQuery(768);
+export function InstructionBlock (): ReactElement {
+    const isTablet = useMediaQuery(768)
 
     return (
         <section className={s.instructionBlock} ref={startRef}>
@@ -154,5 +155,5 @@ export default function InstructionBlock() {
                 </div>
             </Container>
         </section>
-    );
+    )
 }

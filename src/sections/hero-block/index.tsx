@@ -1,28 +1,26 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import React, { ReactElement } from 'react'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-import Title from '@/components/ui/title';
-import Button from '@/components/ui/button';
-import Text from '@/components/ui/text';
-import Container from '@/components/container';
+import { Title } from '@/components/ui/title'
+import { Button } from '@/components/ui/button'
+import { Text } from '@/components/ui/text'
+import { Container } from '@/components/container'
 
-import { bots } from '@/mockup/hero';
+import { bots } from '@/mockup/hero'
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { useMediaQuery } from '@/hooks/use-media-query'
 
-import s from './hero-block.module.scss';
+import PHONE from 'public/img/hero-block/phone-screen.svg'
+import SCREEN from 'public/img/hero-block/screen2.webp'
 
-import PHONE from 'public/img/hero-block/phone-screen.svg';
-import SCREEN from 'public/img/hero-block/screen2.webp';
+import PHONE_MOBILE from 'public/img/hero-block/phone-screen-mobile.svg'
+import s from './hero-block.module.scss'
 
-import PHONE_MOBILE from 'public/img/hero-block/phone-screen-mobile.svg';
-import PHONE_MOBILE_SCREEN from 'public/img/hero-block/screen2.webp';
-
-export default function HeroBlock() {
-    const isMobile = useMediaQuery(768);
+export function HeroBlock (): ReactElement {
+    const isMobile = useMediaQuery(768)
 
     return (
         <motion.section className={s.heroBlock}>
@@ -56,20 +54,20 @@ export default function HeroBlock() {
                             <div className={s.botsList}>
                                 {bots.map((bot, index) => (
                                     <motion.div
-                                    key={bot.alt}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: index * 0.2 }}
-                                    className={s.botsListItem}
-                                >
-                                    <Image 
-                                    src={bot.src} 
-                                    alt={bot.alt} 
-                                    width={isMobile ? 63: 96 }
-                                    height={isMobile ? 63: 96 }
-                                    loading={'eager'}
-                                    />
-                                </motion.div>
+                                        key={bot.alt}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ delay: index * 0.2 }}
+                                        className={s.botsListItem}
+                                    >
+                                        <Image
+                                            src={bot.src}
+                                            alt={bot.alt}
+                                            width={isMobile ? 63 : 96 }
+                                            height={isMobile ? 63 : 96 }
+                                            loading={'eager'}
+                                        />
+                                    </motion.div>
                                 ))}
                             </div>
                             <Text variant="base" className={s.info}>
@@ -87,10 +85,10 @@ export default function HeroBlock() {
                             {!isMobile ? (
                                 <>
                                     <PHONE />
-                                    <Image 
-                                        src={SCREEN} 
-                                        className={s.phoneScreen} 
-                                        alt="screen" 
+                                    <Image
+                                        src={SCREEN}
+                                        className={s.phoneScreen}
+                                        alt="screen"
                                         width={304}
                                         height={663}
                                         loading={'eager'}
@@ -101,7 +99,7 @@ export default function HeroBlock() {
                                 <>
                                     <PHONE_MOBILE />
                                     <Image
-                                        src={PHONE_MOBILE_SCREEN}
+                                        src={SCREEN}
                                         className={s.phoneScreen}
                                         alt="screen"
                                         width={280}
@@ -116,5 +114,5 @@ export default function HeroBlock() {
                 </motion.div>
             </Container>
         </motion.section>
-    );
+    )
 }

@@ -1,22 +1,22 @@
 'use client'
 
-import React from 'react';
+import React, { ReactElement } from 'react'
 
-import { v1 } from 'uuid';
+import { v1 } from 'uuid'
 
-import Container from '@/components/container';
-import Title from '@/components/ui/title';
-import Text from '@/components/ui/text';
-import Button from '@/components/ui/button';
+import { Container } from '@/components/container'
+import { Title } from '@/components/ui/title'
+import { Text } from '@/components/ui/text'
+import { Button } from '@/components/ui/button'
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { useMediaQuery } from '@/hooks/use-media-query'
 
-import { communityData } from '@/mockup/community';
+import { communityData } from '@/mockup/community'
 
-import s from './community-block.module.scss';
+import s from './community-block.module.scss'
 
-export default function CommunityBlock() {
-    const isMobile = useMediaQuery(768);
+export function CommunityBlock (): ReactElement {
+    const isMobile = useMediaQuery(768)
 
     return (
         <section className={s.community}>
@@ -29,7 +29,7 @@ export default function CommunityBlock() {
                     service unlocks.
                 </Text>
                 <div className={s.communityItems}>
-                    {communityData.map((el) => (
+                    {communityData.map(el => (
                         <div key={v1()} className={s.communityItem}>
                             {React.createElement(!isMobile ? el.img : el.imgMobile)}
                             <a href="#" className={s.communityItemTitle}>
@@ -43,5 +43,5 @@ export default function CommunityBlock() {
                 </div>
             </Container>
         </section>
-    );
+    )
 }

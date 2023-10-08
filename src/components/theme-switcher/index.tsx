@@ -1,30 +1,29 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { useState, useEffect, ReactElement } from 'react'
+import { useTheme } from 'next-themes'
+import { motion } from 'framer-motion'
 
-import s from './theme-switcher.module.scss';
+import LIGHT from 'public/img/header/dark-mode.svg'
+import DARK from 'public/img/header/light-mode.svg'
+import s from './theme-switcher.module.scss'
 
-import LIGHT from 'public/img/header/dark-mode.svg';
-import DARK from 'public/img/header/light-mode.svg';
-
-export default function ThemeSwitcher() {
-    const [mounted, setMounted] = useState<boolean>(false);
-    const { theme, setTheme } = useTheme();
+export function ThemeSwitcher (): ReactElement | null {
+    const [ mounted, setMounted ] = useState<boolean>(false)
+    const { theme, setTheme } = useTheme()
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        setMounted(true)
+    }, [])
 
     if (!mounted) {
-        return null;
+        return null
     }
 
     const handleClick = () => {
-        theme === 'light' ? setTheme('dark') : setTheme('light');
-    };
+        if (theme === 'light') setTheme('dark')
+        else setTheme('light')
+    }
 
     return (
         <motion.button
@@ -36,5 +35,5 @@ export default function ThemeSwitcher() {
         >
             {theme === 'light' ? <LIGHT /> : <DARK />}
         </motion.button>
-    );
+    )
 }

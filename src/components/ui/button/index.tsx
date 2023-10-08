@@ -1,17 +1,17 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import Image from 'next/image';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { ButtonHTMLAttributes, ReactElement, ReactNode } from 'react'
 
-import { Inter } from 'next/font/google';
+import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] });
+import s from './button.module.scss'
 
-import s from './button.module.scss';
+const inter = Inter({ subsets: [ 'latin' ] })
 
 const buttonVariant = {
     general: s.generalVariant,
     secondary: s.secondaryVariant,
-    primary: s.primaryVariant,
-};
+    primary: s.primaryVariant
+}
 
 interface ButtonProps
     extends React.DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
@@ -41,7 +41,7 @@ interface ButtonProps
     disabled?: boolean;
 }
 
-export default function Button({
+export function Button ({
     variant = 'general',
     className,
     children,
@@ -49,7 +49,7 @@ export default function Button({
     startIcon,
     endIcon,
     ...restProps
-}: ButtonProps) {
+}: ButtonProps): ReactElement {
     return (
         <button
             className={`
@@ -61,9 +61,7 @@ export default function Button({
             disabled={disabled}
             {...restProps}
         >
-            {/* {!!startIcon && <Image src={startIcon} alt="start icon" />} */}
             {children}
-            {/* {!!endIcon && <Image src={endIcon} alt="end icon" />} */}
         </button>
-    );
+    )
 }

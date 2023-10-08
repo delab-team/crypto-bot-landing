@@ -1,41 +1,41 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 const getWindowWidth = () => {
-    const { innerWidth: windowWidth } = typeof window !== 'undefined' ? window : { innerWidth: 0 };
+    const { innerWidth: windowWidth } = typeof window !== 'undefined' ? window : { innerWidth: 0 }
 
-    return { windowWidth };
-};
+    return { windowWidth }
+}
 
 const useWindowWidth = () => {
-    const [windowWidth, setWindowWidth] = useState(getWindowWidth());
+    const [ windowWidth, setWindowWidth ] = useState(getWindowWidth())
 
-    const handleResize = () => setWindowWidth(getWindowWidth());
+    const handleResize = () => setWindowWidth(getWindowWidth())
 
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize)
 
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
-    return { windowWidth, handleResize };
-};
+    return { windowWidth, handleResize }
+}
 
-export const useMediaQuery = (maxWidth: number) => {
+export const useMediaQuery = (maxWidth: number): boolean => {
     const {
         windowWidth: { windowWidth },
-        handleResize,
-    } = useWindowWidth();
-    const [isMedia, setIsMedia] = useState(false);
+        handleResize
+    } = useWindowWidth()
+    const [ isMedia, setIsMedia ] = useState(false)
 
     useEffect(() => {
         if (windowWidth <= maxWidth) {
-            setIsMedia(true);
+            setIsMedia(true)
         } else {
-            setIsMedia(false);
+            setIsMedia(false)
         }
-    }, [handleResize, maxWidth, windowWidth]);
+    }, [ handleResize, maxWidth, windowWidth ])
 
-    return isMedia;
-};
+    return isMedia
+}

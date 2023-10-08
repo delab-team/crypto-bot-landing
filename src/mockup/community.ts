@@ -11,29 +11,29 @@ import IMG4_Mobile from 'public/img/community/Python-mobile.svg'
 import IMG5_Mobile from 'public/img/community/go-mobile.svg'
 
 export const communityData = [
-  {
-    img: IMG1,
-    imgMobile: IMG1_Mobile,
-    title: 'crypto-pay-api'
-  },
-  {
-    img: IMG2,
-    imgMobile: IMG2_Mobile,
-    title: 'CryptoPay'
-  },
-  {
-    img: IMG3,
-    imgMobile: IMG3_Mobile,
-    title: 'crypto-pay-api'
-  },
-  {
-    img: IMG4,
-    imgMobile: IMG4_Mobile,
-    title: 'aiocryptopay'
-  },
-  {
-    img: IMG5,
-    imgMobile: IMG5_Mobile,
-    title: 'cryptobot-sdk-golang'
-  },
+    {
+        img: IMG1,
+        imgMobile: IMG1_Mobile,
+        title: 'crypto-pay-api'
+    },
+    {
+        img: IMG2,
+        imgMobile: IMG2_Mobile,
+        title: 'CryptoPay'
+    },
+    {
+        img: IMG3,
+        imgMobile: IMG3_Mobile,
+        title: 'crypto-pay-api'
+    },
+    {
+        img: IMG4,
+        imgMobile: IMG4_Mobile,
+        title: 'aiocryptopay'
+    },
+    {
+        img: IMG5,
+        imgMobile: IMG5_Mobile,
+        title: 'cryptobot-sdk-golang'
+    }
 ]

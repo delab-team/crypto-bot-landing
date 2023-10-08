@@ -1,37 +1,38 @@
-'use client';
+/* eslint-disable import/no-cycle */
 
-import Link from 'next/link';
-import { useTheme } from 'next-themes';
+'use client'
 
-import Container from '../container';
-import Button from '../ui/button';
-import ThemeSwitcher from '../theme-switcher';
+import Link from 'next/link'
+import { ReactElement } from 'react'
+import { useTheme } from 'next-themes'
 
-import { casesRef } from '@/sections/sales-info';
-import { featuresRef } from '@/sections/features-block';
-import { startRef } from '@/sections/instruction-block';
+import { casesRef } from '@/sections/sales-info'
+import { featuresRef } from '@/sections/features-block'
+import { startRef } from '@/sections/instruction-block'
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { useMediaQuery } from '@/hooks/use-media-query'
 
-import s from './header.module.scss';
-
-import LOGO from 'public/img/header/logo.svg';
-import LOGO_MOBILE from 'public/img/header/logo-mobile.svg';
+import LOGO from 'public/img/header/logo.svg'
+import LOGO_MOBILE from 'public/img/header/logo-mobile.svg'
+import s from './header.module.scss'
+import { ThemeSwitcher } from '../theme-switcher'
+import { Button } from '../ui/button'
+import { Container } from '../container'
 
 export interface NavRef {
     current: HTMLDivElement | null;
 }
 
-export default function Header() {
-    const { theme, setTheme } = useTheme();
+export function Header (): ReactElement {
+    const { theme } = useTheme()
 
     const scroll = (ref: NavRef) => {
         if (ref.current) {
-            ref.current.scrollIntoView({ behavior: 'smooth' });
+            ref.current.scrollIntoView({ behavior: 'smooth' })
         }
-    };
+    }
 
-    const isMobile = useMediaQuery(768);
+    const isMobile = useMediaQuery(768)
 
     return (
         <header className={s.header}>
@@ -80,5 +81,5 @@ export default function Header() {
                 </div>
             </Container>
         </header>
-    );
+    )
 }

@@ -1,34 +1,38 @@
-'use client';
+/* eslint-disable import/no-cycle */
+/* eslint-disable consistent-return */
 
-import { useTheme } from 'next-themes';
+'use client'
 
-import Container from '@/components/container';
-import FeaturesCurrencies from '@/components/features-currencies';
-import Title from '@/components/ui/title';
-import Text from '@/components/ui/text';
-import { NavRef } from '@/components/header';
+import { useTheme } from 'next-themes'
+import { ReactElement } from 'react'
 
-import useVideo from '@/hooks/useVideo';
+import { Container } from '@/components/container'
+import { FeaturesCurrencies } from '@/components/features-currencies'
+import { Title } from '@/components/ui/title'
+import { Text } from '@/components/ui/text'
+import { NavRef } from '@/components/header'
 
-import s from './features-block.module.scss';
+import { useVideo } from '@/hooks/useVideo'
 
-export const featuresRef: NavRef = { current: null };
+import s from './features-block.module.scss'
+
+export const featuresRef: NavRef = { current: null }
 
 interface VideoProps
     extends React.DetailedHTMLProps<React.VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement> {
     url: string;
 }
 
-function Video({ url, ...rest }: VideoProps) {
-    const video = useVideo(url);
+function Video ({ url, ...rest }: VideoProps): ReactElement | undefined {
+    const video = useVideo(url)
 
-    if (!video) return;
+    if (!video) return
 
-    return <video src={video} {...rest} />;
+    return <video src={video} {...rest} />
 }
 
-export default function FeaturesBlock() {
-    const { theme } = useTheme();
+export function FeaturesBlock (): ReactElement {
+    const { theme } = useTheme()
 
     return (
         <section className={s.features} ref={featuresRef}>
@@ -131,7 +135,7 @@ export default function FeaturesBlock() {
                     <div className={s.commission}>
                         <div className={s.commissionVideo}>
                             {theme === 'light' ? (
-                                    <Video
+                                <Video
                                     url="/videos/send.mp4"
                                     key="light"
                                     playsInline
@@ -141,13 +145,13 @@ export default function FeaturesBlock() {
                                 />
                             ) : (
                                 <Video
-                                url="/videos/send-black.mp4"
-                                key="dark"
-                                playsInline
-                                autoPlay
-                                loop
-                                muted
-                            />
+                                    url="/videos/send-black.mp4"
+                                    key="dark"
+                                    playsInline
+                                    autoPlay
+                                    loop
+                                    muted
+                                />
                             )}
                         </div>
                         <Title variant="h3" className={s.commissionTitle}>
@@ -163,13 +167,13 @@ export default function FeaturesBlock() {
                     </div>
                     <div className={s.payments}>
                         <div className={s.paymentsVideo}>
-                        <Video
-                                    url="/videos/payments.mp4"
-                                    playsInline
-                                    autoPlay
-                                    loop
-                                    muted
-                                />
+                            <Video
+                                url="/videos/payments.mp4"
+                                playsInline
+                                autoPlay
+                                loop
+                                muted
+                            />
                         </div>
                         <Title variant="h3" className={s.paymentsTitle}>
                             Anonymous payments
@@ -182,5 +186,5 @@ export default function FeaturesBlock() {
                 </div>
             </Container>
         </section>
-    );
+    )
 }

@@ -20,6 +20,7 @@
     "react": "latest",
     "react-dom": "latest",
     "sass": "^1.68.0",
+    "sharp": "^0.32.6",
     "swiper": "^10.3.1",
     "uuid": "^9.0.1"
   },
@@ -28,8 +29,14 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "eslint": "latest",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.51.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-next": "latest",
+    "eslint-import-resolver-typescript": "^3.3.0",
+    "eslint-plugin-import": "^2.26.0",
     "typescript": "latest",
     "url-loader": "^4.1.1"
   }

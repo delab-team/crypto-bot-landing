@@ -1,91 +1,90 @@
-'use client';
+/* eslint-disable import/no-cycle */
+/* eslint-disable consistent-return */
 
-import React from 'react';
+'use client'
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactElement } from 'react'
 
-import { Inter } from 'next/font/google';
+import { Inter } from 'next/font/google'
 
-import { v1 } from 'uuid';
+import { v1 } from 'uuid'
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules'
 
-import Container from '@/components/container';
-import Title from '@/components/ui/title';
-import Text from '@/components/ui/text';
-import Button from '@/components/ui/button';
-import { NavRef } from '@/components/header';
+import { Container } from '@/components/container'
+import { Title } from '@/components/ui/title'
+import { Text } from '@/components/ui/text'
+import { Button } from '@/components/ui/button'
+import { NavRef } from '@/components/header'
 
-import { useCasesArr } from '@/mockup/use-cases';
+import { useCasesArr } from '@/mockup/use-cases'
 
-import { useMediaQuery } from '@/hooks/use-media-query';
+import { useMediaQuery } from '@/hooks/use-media-query'
 
-import 'swiper/css';
-import 'swiper/css/pagination';
+import 'swiper/css'
+import 'swiper/css/pagination'
 
-import s from './sales-info.module.scss';
+import s from './sales-info.module.scss'
 
-export const casesRef: NavRef = { current: null };
+export const casesRef: NavRef = { current: null }
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: [ 'latin' ] })
 
-export default function SalesInfo() {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+export function SalesInfo (): ReactElement {
+    const [ activeIndex, setActiveIndex ] = useState<number>(0)
 
-    const totalSlides = useCasesArr.length;
+    const totalSlides = useCasesArr.length
 
     useEffect(() => {
-        const pagination = document.querySelector('.swiper-pagination');
+        const pagination = document.querySelector('.swiper-pagination')
 
         if (pagination) {
-            const activeSlideNumber = (activeIndex + 1).toString().padStart(2, '0');
-            const totalSlidesNumber = totalSlides.toString().padStart(2, '0');
+            const activeSlideNumber = (activeIndex + 1).toString().padStart(2, '0')
+            const totalSlidesNumber = totalSlides.toString().padStart(2, '0')
 
-            const beforeStyle = document.createElement('style');
+            const beforeStyle = document.createElement('style')
             beforeStyle.textContent = `
             .swiper-pagination::before {
                 font-family: ${inter.style.fontFamily}; 
               content: '${activeSlideNumber}';
             }
-          `;
+          `
 
-            const afterStyle = document.createElement('style');
+            const afterStyle = document.createElement('style')
             afterStyle.textContent = `
             .swiper-pagination::after {
                 font-family: ${inter.style.fontFamily}; 
               content: '${totalSlidesNumber}';
             }
-          `;
+          `
 
-            pagination.appendChild(beforeStyle);
-            pagination.appendChild(afterStyle);
+            pagination.appendChild(beforeStyle)
+            pagination.appendChild(afterStyle)
 
             return () => {
-                pagination.removeChild(beforeStyle);
-                pagination.removeChild(afterStyle);
-            };
+                pagination.removeChild(beforeStyle)
+                pagination.removeChild(afterStyle)
+            }
         }
-    }, [activeIndex, totalSlides]);
+    }, [ activeIndex, totalSlides ])
 
-    const isMobile = useMediaQuery(1024);
-    const isTablet = useMediaQuery(768);
+    const isMobile = useMediaQuery(1024)
+    const isTablet = useMediaQuery(768)
 
     return (
         <section className={s.useCasesSection} ref={casesRef}>
             <Container>
                 <Swiper
-                    modules={[Pagination]}
+                    modules={[ Pagination ]}
                     spaceBetween={30}
                     slidesPerView={1}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    onActiveIndexChange={(index) => setActiveIndex(index.activeIndex)}
+                    pagination={{ clickable: true }}
+                    onActiveIndexChange={index => setActiveIndex(index.activeIndex)}
                     className={s.useCasesSwiper}
                     direction={!isMobile ? 'vertical' : 'horizontal'}
                 >
-                    {useCasesArr.map((el) => (
+                    {useCasesArr.map(el => (
                         <SwiperSlide className={s.useCasesItem} key={v1()}>
                             <div className={s.useCasesBlockImg}>
                                 {React.createElement(!isTablet ? el.img : el.imgMobile)}
@@ -105,5 +104,5 @@ export default function SalesInfo() {
                 </Swiper>
             </Container>
         </section>
-    );
+    )
 }

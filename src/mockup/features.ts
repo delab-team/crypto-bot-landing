@@ -17,44 +17,44 @@ import USDC_MOBILE from 'public/img/features/currencies/USDC-mobile.svg'
 import BNB_MOBILE from 'public/img/features/currencies/BNB-mobile.svg'
 
 export const currencies = [
-  {
-    icon: ETH,
-    iconMobile: ETH_MOBILE,
-    title: 'ETH'
-  },
-  {
-    icon: USDT,
-    iconMobile: USDT_MOBILE,
-    title: 'USDT'
-  },
-  {
-    icon: TON,
-    iconMobile: TON_MOBILE,
-    title: 'TON'
-  },
-  {
-    icon: BTC,
-    iconMobile: BTC_MOBILE,
-    title: 'BTC'
-  },
-  {
-    icon: TRX,
-    iconMobile: TRX_MOBILE,
-    title: 'TRX'
-  },
-  {
-    icon: LTC,
-    iconMobile: LTC_MOBILE,
-    title: 'LTC'
-  },
-  {
-    icon: USDC,
-    iconMobile: USDC_MOBILE,
-    title: 'USDC'
-  },
-  {
-    icon: BNB,
-    iconMobile: BNB_MOBILE,
-    title: 'BNB'
-  }
+    {
+        icon: ETH,
+        iconMobile: ETH_MOBILE,
+        title: 'ETH'
+    },
+    {
+        icon: USDT,
+        iconMobile: USDT_MOBILE,
+        title: 'USDT'
+    },
+    {
+        icon: TON,
+        iconMobile: TON_MOBILE,
+        title: 'TON'
+    },
+    {
+        icon: BTC,
+        iconMobile: BTC_MOBILE,
+        title: 'BTC'
+    },
+    {
+        icon: TRX,
+        iconMobile: TRX_MOBILE,
+        title: 'TRX'
+    },
+    {
+        icon: LTC,
+        iconMobile: LTC_MOBILE,
+        title: 'LTC'
+    },
+    {
+        icon: USDC,
+        iconMobile: USDC_MOBILE,
+        title: 'USDC'
+    },
+    {
+        icon: BNB,
+        iconMobile: BNB_MOBILE,
+        title: 'BNB'
+    }
 ]
