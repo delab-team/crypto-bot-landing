@@ -15,8 +15,11 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 
 import s from './hero-block.module.scss';
 
-import PHONE from 'public/img/hero-block/phone.svg';
-import PHONE_MOBILE from 'public/img/hero-block/phone-mobile.svg';
+import PHONE from 'public/img/hero-block/phone-screen.svg';
+import SCREEN from 'public/img/hero-block/screen.png';
+
+import PHONE_MOBILE from 'public/img/hero-block/phone-screen-mobile.svg';
+import PHONE_MOBILE_SCREEN from 'public/img/hero-block/screen-phone-mobile.png';
 
 export default function HeroBlock() {
     const isMobile = useMediaQuery(768);
@@ -25,9 +28,9 @@ export default function HeroBlock() {
         <motion.section className={s.heroBlock}>
             <Container>
                 <motion.div
-                    // initial={{ y: 20, opacity: 0 }}
-                    // animate={{ y: 0, opacity: 1 }}
-                    // transition={{ duration: 0.2, delay: 0.1 }}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.2, delay: 0.1 }}
                     className={s.heroBlockRow}
                 >
                     <motion.div
@@ -53,14 +56,14 @@ export default function HeroBlock() {
                             <div className={s.botsList}>
                                 {bots.map((bot, index) => (
                                     <motion.div
-                                        key={bot.alt}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ delay: index * 0.2 }}
-                                        className={s.botsListItem}
-                                    >
-                                        {React.createElement(!isMobile ? bot.src : bot.srcMobile)}
-                                    </motion.div>
+                                    key={bot.alt}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: index * 0.2 }}
+                                    className={s.botsListItem}
+                                >
+                                    <Image src={bot.src} alt={bot.alt} />
+                                </motion.div>
                                 ))}
                             </div>
                             <Text variant="base" className={s.info}>
@@ -74,7 +77,23 @@ export default function HeroBlock() {
                         transition={{ duration: 0.2, delay: 0.2 }}
                         className={s.heroBlockRight}
                     >
-                        {!isMobile ? <PHONE /> : <PHONE_MOBILE/>}
+                        <div className={s.phone}>
+                            {!isMobile ? (
+                                <>
+                                    <PHONE />
+                                    <Image src={SCREEN} className={s.phoneScreen} alt="screen" />
+                                </>
+                            ) : (
+                                <>
+                                    <PHONE_MOBILE />
+                                    <Image
+                                        src={PHONE_MOBILE_SCREEN}
+                                        className={s.phoneScreen}
+                                        alt="screen"
+                                    />
+                                </>
+                            )}
+                        </div>
                     </motion.div>
                 </motion.div>
             </Container>
