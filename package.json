@@ -2,6 +2,9 @@
   "name": "crypto-bot-lending",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://crypto-bot-landing.pages.dev",
+  "repository": "https://github.com/delab-team/crypto-bot-landing",
+  "author": "DeLab Team",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
