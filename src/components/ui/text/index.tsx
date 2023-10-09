@@ -11,7 +11,6 @@ interface TextProps {
     className?: string;
     children: React.ReactNode;
 }
-
 export function Text ({
     variant = 'base',
     color,
