@@ -32,6 +32,7 @@ export function ThemeSwitcher (): ReactElement | null {
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.2 }}
+            aria-label='theme switcher'
         >
             {theme === 'light' ? <LIGHT /> : <DARK />}
         </motion.button>
